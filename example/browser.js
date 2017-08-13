@@ -1,7 +1,7 @@
 // todo
 import React from 'react'
-import {render} from 'react-dom'
-import {hydrate} from '../src/browser'
+
+import {hydrate} from '../src/browser' // use hydrate from glamor-stream instead of react-dom
 import App from './app'
 
 const count = parseInt(window.location.pathname.substring(1), 10);

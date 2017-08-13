@@ -25,7 +25,7 @@ export default function(){
       this.queue(`<style data-glamor-chunk>${css.join('')}</style>`)
     }
 
-    this.queue(data.toString())
+    this.queue(data)
   }, function end(){
     this.queue(null)
   })
