@@ -4,14 +4,25 @@ import tokenize from 'html-tokenize'
 import pipe from 'multipipe'
 import { styleSheet } from 'glamor'
 
+const GlobalTypes = ['raw', 'keyframes', 'font-face']
 
 export default function inline(){
 
   let insed = {}
   const tokenStream = tokenize()
+  let globalInserted = false
 
   const inlineStream = through(function write([type, data]){
     if(type==='open'){
+      let css = []
+      if(!globalInserted){
+        Object.keys(styleSheet.inserted).filter(id =>
+          GlobalTypes.indexOf(styleSheet.registered[id].type) >= 0
+        ).forEach(id =>
+          css.push(styleSheet.inserted[id].join('')))
+        globalInserted = true
+      }                  
+
       let ids = {}, match
       let fragment = data.toString()
       let regex = /css\-([a-zA-Z0-9\-_]+)/gm
@@ -20,7 +31,7 @@ export default function inline(){
           ids[match[1] + ''] = insed[match[1] + ''] = true
         }
       }
-      let css = []
+
       Object.keys(ids).forEach(id => {
         css.push(styleSheet.inserted[id].join(''))
       })

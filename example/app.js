@@ -3,6 +3,11 @@ import { css } from 'glamor'
 
 const maxColors = Math.pow(16, 6)
 
+css.global('html, body', {
+  padding: 0,
+  margin: 0
+})
+
 // a sample react app. nothing fancy, just generating enough html to guarantee chunks
 export default function App({ count }){
 

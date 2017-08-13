@@ -5,7 +5,6 @@ import { css } from 'glamor'
 import inline from '../src'
 import express from 'express'
 import through from 'through'
-import tokenize from 'html-tokenize'
 
 const app = express()
 import App from './app'
@@ -50,5 +49,5 @@ app.get('/:id', (req, res, next) => {
 
 
 app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
+  console.log('Example app listening on port 3000')
 })
