@@ -7,18 +7,21 @@
   "author": "Sunil Pai <threepointone@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "browser": "webpack -w",
     "start": "babel-node example/server.js",
     "build": "babel src -d lib"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
+    "babel-loader": "^7.1.1",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "express": "^4.15.4",
     "glamor": "^2.20.39",
     "react": "^16.0.0-beta.5",
-    "react-dom": "^16.0.0-beta.5"
+    "react-dom": "^16.0.0-beta.5",
+    "webpack": "^3.5.4"
   },
   "dependencies": {
     "through": "^2.3.8"

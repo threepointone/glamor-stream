@@ -9,6 +9,7 @@ import through from 'through'
 const app = express()
 import App from './app'
 
+app.use(express.static('example'))
 
 // a utility to wrap the html with boyd tags and so on
 // it flushes the initial tags imemdiately, and pipes the rest
@@ -31,6 +32,7 @@ function wrap(res, content){
     // close tags
     this.queue(`</div>
       </body>
+      <script src='/bundle.js'></script>
     </html>
     `)
     this.queue(null)
