@@ -7,7 +7,7 @@
   "author": "Sunil Pai <threepointone@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "browser": "webpack -w",
+    "browser": "webpack -w -p",
     "start": "babel-node example/server.js",
     "build": "babel src -d lib"
   },

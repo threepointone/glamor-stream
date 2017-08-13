@@ -11,7 +11,7 @@ import App from './app'
 
 app.use(express.static('example'))
 
-// a utility to wrap the html with boyd tags and so on
+// wrap the html with heml/head/body tags and so on
 // it flushes the initial tags imemdiately, and pipes the rest
 // finishing with ending tags
 function wrap(res, content){
