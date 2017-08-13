@@ -16,20 +16,15 @@ export default function(){
         ids[match[1] + ''] = insed[match[1] + ''] = true
       }
     }
-    let rules = styleSheet.rules().filter(x => {
-      let regex = /css\-([a-zA-Z0-9\-_]+)/gm
-      let match = regex.exec(x.cssText)
-      if(match && ids[match[1] + '']) {
-        return true
-      }
-      if(!match) {
-        return true
-      }
-      return false
+    let css = []
+    Object.keys(ids).forEach(id => {
+      css.push(styleSheet.inserted[id].join(''))
     })
-    let css = rules.map(x => x.cssText).join('')
-    css = css.length > 0 ? `<style data-glamor-chunk>${css}</style>` : css
-    this.queue(css)
+
+    if(css){
+      this.queue(`<style data-glamor-chunk>${css.join('')}</style>`)
+    }
+
     this.queue(data.toString())
   }, function end(){
     this.queue(null)
