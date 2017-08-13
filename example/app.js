@@ -11,7 +11,7 @@ export default function App({ count }){
     <span>
       hello world
     </span>
-    {Array.from({ length: count }).map((_, i) =>
+    {Array.from({ length: count }, (_, i) =>
       <span key={i} className={css({ color: '#' + Math.round((i/count)*maxColors).toString(16).padStart(6, '0') })}>
         what what
       </span>)}

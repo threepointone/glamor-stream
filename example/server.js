@@ -5,6 +5,7 @@ import { css } from 'glamor'
 import inline from '../src'
 import express from 'express'
 import through from 'through'
+import tokenize from 'html-tokenize'
 
 const app = express()
 import App from './app'
@@ -26,7 +27,7 @@ function wrap(res, content){
       <body>
         <div id='app'>`)
   // content -> inline
-  return content.pipe(inline()).pipe(through(function write(data){
+  return content.pipe(tokenize()).pipe(inline()).pipe(through(function write(data){
     this.queue(data)
   }, function end(){
     // close tags

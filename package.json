@@ -24,6 +24,7 @@
     "webpack": "^3.5.4"
   },
   "dependencies": {
+    "html-tokenize": "^2.0.0",
     "through": "^2.3.8"
   },
   "babel": {
