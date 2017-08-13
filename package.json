@@ -1,6 +1,6 @@
 {
   "name": "glamor-stream",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "stream inline css-in-js ",
   "main": "lib/index.js",
   "repository": "threepointone/glamor-stream",
