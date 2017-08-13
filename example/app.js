@@ -1,6 +1,8 @@
 import React from 'react'
 import { css } from 'glamor'
 
+const maxColors = Math.pow(16, 6)
+
 // a sample react app. nothing fancy, just generating enough html to guarantee chunks
 export default function App({ count }){
 
@@ -10,7 +12,7 @@ export default function App({ count }){
       hello world
     </span>
     {Array.from({ length: count }).map((_, i) =>
-      <span className={css({ opacity: (i%16)/16 })}>
+      <span className={css({ color: '#' + Math.round((i/count)*maxColors).toString(16).padStart(6, '0') })}>
         what what
       </span>)}
   </div>
