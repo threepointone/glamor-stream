@@ -44,6 +44,4 @@ todos
 ---
 
 - include 'global' rules
-- naive implementation, plenty of optimisation work
-- todo - inline right before usage per classname for predictable html
 - utils for wrapper tags
