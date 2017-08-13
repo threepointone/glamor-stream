@@ -37,12 +37,12 @@ let html = renderToStream(<App/>).pipe(inline())
 
 ```
 
-see the express.js-based example for more details.
+see the [express.js-based example](blob/master/example/server.js) for more details.
 
 todos
 ---
 
-- include 'global' rules 
+- include 'global' rules
 - naive implementation, plenty of optimisation work
 - todo - inline right before usage per classname for predictable html
 - utils for wrapper tags
