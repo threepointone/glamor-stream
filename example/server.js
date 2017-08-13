@@ -7,17 +7,8 @@ import express from 'express'
 import through from 'through'
 
 const app = express()
+import App from './app'
 
-// a sample react app. nothing fancy, just generating enough html to guarantee chunks
-function App(){
-  return <div className={css({color: 'red'})}>
-    woah there
-    <span>
-      hello world
-    </span>
-    {Array.from({ length: 1000 }).map((_, i) => <span className={css({ width: i*10 })}>what what</span>)}
-  </div>
-}
 
 // a utility to wrap the html with boyd tags and so on
 // it flushes the initial tags imemdiately, and pipes the rest
@@ -29,7 +20,7 @@ function wrap(res, content){
   res.write(`<!doctype html>
     <html>
       <head>
-        <title> streaming css example</title>
+        <title>streaming css example</title>
       </head>
       <body>
         <div id='app'>`)
@@ -37,7 +28,7 @@ function wrap(res, content){
   return content.pipe(inline()).pipe(through(function write(data){
     this.queue(data)
   }, function end(){
-    // close tags 
+    // close tags
     this.queue(`</div>
       </body>
     </html>
@@ -51,7 +42,7 @@ app.get('/', (req, res, next) => {
 })
 
 app.get('/:id', (req, res, next) => {
-  wrap(res, renderToStream(<App pid={req.params.id}/>))
+  wrap(res, renderToStream(<App count={req.params.id}/>))
 })
 
 
