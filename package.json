@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "html-tokenize": "^2.0.0",
+    "multipipe": "^1.0.2",
     "through": "^2.3.8"
   },
   "babel": {

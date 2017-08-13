@@ -27,7 +27,7 @@ function wrap(res, content){
       <body>
         <div id='app'>`)
   // content -> inline
-  return content.pipe(tokenize()).pipe(inline()).pipe(through(function write(data){
+  return content.pipe(inline()).pipe(through(function write(data){
     this.queue(data)
   }, function end(){
     // close tags

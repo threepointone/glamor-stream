@@ -1,16 +1,16 @@
 
 import through from 'through'
 import tokenize from 'html-tokenize'
-
-
+import pipe from 'multipipe'
 import { styleSheet } from 'glamor'
 
-export default function(){
+
+export default function inline(){
 
   let insed = {}
+  const tokenStream = tokenize()
 
-
-  return through(function write([type, data]){
+  const inlineStream = through(function write([type, data]){
     if(type==='open'){
       let ids = {}, match
       let fragment = data.toString()
@@ -34,4 +34,6 @@ export default function(){
   }, function end(){
     this.queue(null)
   })
+
+  return pipe(tokenStream, inlineStream)
 }
