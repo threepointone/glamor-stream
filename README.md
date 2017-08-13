@@ -37,7 +37,7 @@ let html = renderToStream(<App/>).pipe(inline())
 
 ```
 
-see the [express.js-based example](blob/master/example/server.js) for more details.
+see the [express.js-based example](example/server.js) for more details.
 
 todos
 ---
