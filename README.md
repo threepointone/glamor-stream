@@ -16,8 +16,9 @@ Nice.
 usage
 ---
 
+#### app.js
+
 ```jsx
-// app.js
 
 import {css} from 'glamor'
 
@@ -26,8 +27,11 @@ export default function App(){
     this text is red
   </div>
 }
+```
 
-// server.js
+#### server.js
+
+```jsx
 
 import inline from 'glamor-stream'
 import {renderToStream} from 'react-dom/server'
@@ -37,7 +41,17 @@ import App from './app.js'
 
 let html = renderToStream(<App/>).pipe(inline())
 // a stream of html inlined with critical css
+```
 
+#### browser.js
+
+```jsx
+
+// (optional)
+// use hydrate from 'glamor-stream' instead of from 'react-dom/server'
+import {hydrate} from '../src/browser'
+import App from './app.js'
+hydrate(<App/>, document.getElementById('app'))
 ```
 
 see the [express.js-based example](example/server.js) for more details.
@@ -46,5 +60,5 @@ todos
 ---
 
 - utils for wrapper tags
-- prevent reinserting created rules 
+- prevent reinserting created rules
 - tests
