@@ -43,5 +43,4 @@ see the [express.js-based example](example/server.js) for more details.
 todos
 ---
 
-- include 'global' rules
 - utils for wrapper tags
