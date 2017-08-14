@@ -3,6 +3,8 @@ glamor-stream
 
 [experimental]
 
+`npm install glamor-stream`
+
 So. You're living on the hype train, all your styles are colocated with your scripts,
 and you server render your pages with critical css for that slick experience. Cool.
 
