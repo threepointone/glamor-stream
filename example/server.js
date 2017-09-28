@@ -1,6 +1,6 @@
 
 import React from 'react'
-import {renderToStream} from 'react-dom/server'
+import { renderToNodeStream } from 'react-dom/server'
 import { css } from 'glamor'
 import inline from '../src'
 import express from 'express'
@@ -40,11 +40,11 @@ function wrap(res, content){
 }
 
 app.get('/', (req, res, next) => {
-  wrap(res, renderToStream(<App/>))
+  wrap(res, renderToNodeStream(<App/>))
 })
 
 app.get('/:id', (req, res, next) => {
-  wrap(res, renderToStream(<App count={req.params.id}/>))
+  wrap(res, renderToNodeStream(<App count={req.params.id}/>))
 })
 
 
