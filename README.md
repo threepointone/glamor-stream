@@ -9,7 +9,7 @@ So. You're living on the hype train, all your styles are colocated with your scr
 and you server render your pages with critical css for that slick experience. Cool.
 
 This module lets you inline critical css into html streams, such as the ones created
-by react's [new streaming apis.](https://github.com/facebook/react/blob/master/docs/docs/reference-react-dom-node-stream.md)
+by react's [new streaming apis.](https://facebook.github.io/react/docs/react-dom-server.html#rendertonodestream)
 Nice.
 
 
